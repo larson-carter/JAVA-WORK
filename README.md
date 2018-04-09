@@ -1,2 +1,2 @@
 # JAVA-WORK
-This Is All Of My Java Projects Just In One REPO!
+This Is All Of My Java Projects for School and Personal Use, No Longer Maintained.
