@@ -1,58 +1,94 @@
+//	Allows Keyboard Input.
 import java.util.Scanner;
+//	Generates Random Number
 import java.util.Random;
+//	Class name is "program"
 public class program {
 	public static void main(String[] args) {
 		//	Initial Question, Displays Problem Choices
 		System.out.println("How Many Questions Would You Like?");
+		//	Accept Input For How Many Questions That The User Wants
 		Scanner sc = new Scanner(System.in);
 		Double num;
 		num = sc.nextDouble();
 		//	Sets Up How Many Times The Program Needs To Run To Repeat For How Many Questions.
-		Double questions = 0.0;
+		Double questions;
 		//	Start To Count How Many Problems That The User Got Right.
-		Double right = 0.0;
-		while (questions < num) {
+		Double right;
+		//	Sets Needed Doubles To 0
+		right = 0.0;
+		questions = 0.0;
+		//	Will Repeat However Many Times That The User wants for questions.
+		while (questions < num) { //	Compares Initial value of questions to num,is how many questions that the user wants.
 			//	Ask User What Type Of Problem
 			System.out.println("What Kind Of Problem Would You Like?");
+			//	1 for Addition, 2 for Subtraction, 3 For Multiplication, 4 for Division
 			System.out.println("1 for \"+\", 2 for \"-\", 3 for \"*\", 4 for \"/\"");
 			//	Takes Input Values For Problem Type
 			Scanner sd = new Scanner(System.in);
 			Double input;
 			input = sc.nextDouble();
 			//	Register What Problem They Would Like
+			//	Input is what type of problem user wants
 			if (input == 1) {
+				//	Addition Problem, Passes Number Of Questions Right, and other necessary things
 				add(right, questions);
+				//	Adds Value To Number Of Questions Asked, Used To Find Percentage Correct
+				questions = questions + 1;
 			} else if (input == 2) {
+				//	Subtraction Problem, Passes Number Of Questions Right, and other necessary things
 				subtract(right, questions);
+				//	Adds Value To Number Of Questions Asked, Used To Find Percentage Correct
+				questions = questions + 1;
 			} else if (input == 3) {
+				//	Multiply Problem, Passes Number Of Questions Right, and other necessary things
 				multiply(right, questions);
+				//	Adds Value To Number Of Questions Asked, Used To Find Percentage Correct
+				questions = questions + 1;
 			} else if (input == 4) {
+				//	Division Problem, Passes Number Of Questions Right, and other necessary things
 				divide(right, questions);
+				//	Adds Value To Number Of Questions Asked, Used To Find Percentage Correct
+				questions = questions + 1;
 			} else if (questions == 1) {
+				//	Percentage Method, Passes Number Of Questions Right, and other necessary things
 				percentage(right, questions, num);
 			} else {
+				//	If Answer to what type of problem they want is not 1-4 it will print this.
 				System.out.println("Not A Valid Problem.");
 			}
-			questions = questions + 1;
 		}
-		if (questions > 1) {
+		//	 Lets User Know What Percentage They got Correct.
+		if (questions >= 1) {
+			//	Percentage Method, Passes Number Of Questions Right, and other necessary things
 			percentage(right, questions, num);
 		}
 		//	Lets User Know That The Program Is Done Running!
-		System.out.println("Program Done Running!");
+		System.out.println("Program Is Done Running!"); //	This Is The Very Last Thing That Happens.
 	}
+	//	Calculate The Percentage That The User Got Correct
 	public static void percentage(Double right, Double questions, Double num) {
 			//	Lets user Know Percentage They Got Correct.
-			Double percentage = (right / num);
+			Double percentageone;
+			percentageone = (right / num); // Used to find the hundredth place percentage EX: .65
+			Double percentagefinal;
+			percentagefinal = (percentageone * 100); //	Used to find the whole number percentage EX: 65
+			//	Used If Only One Question Is Asked.
 			if (questions == 1.0) {
-				System.out.println("You Got %" + percentage + " Right");
+				System.out.println("You Got %" + percentagefinal + " Right");
+			//	used If More Than One Question Is Asked
 			} else if (questions > 1.0) {
-				System.out.println("You Got %" + percentage + " Right");
+				System.out.println("You Got %" + percentagefinal + " Right");
+			//	Used If There Are 0 Questions Asked.
+			} else if (questions == 0.0) {
+				System.out.println("You Did Not Ask Any Questions");
 			}
 	}
+	//	Addition Method
 	public static Double add(Double right, Double questions) {
 		//	ADDS VALUE TO QUESTIONS
-		questions = questions + 1;
+		questions = questions + 1; //	Adds one to questions asked
+		//	Computer FeedBack
 		System.out.println("OK, Let's Add!");
 		//	THIS IS THE RANDOM NUMBER GENERATOR
 		Random rand = new Random(); //	This Declares The Random Number
@@ -68,17 +104,21 @@ public class program {
 		add = sc.nextDouble(); //	This Sets Current Scanner To The User Answer
 		//	Tell User If It Is Right Or Wrong!
 		int answer = (int) (rnumber + rnumber2); //	Creates INT To Determine The Right Answer
+		//	Used If user Got Question Correct
 		if (add == answer) {	//	Compares User Answer To The Correct Computer Answer	
 			System.out.println("Correct!"); //	Prints Out Correct
 			right = right + 1.0;
+		//	Used If user Got Question Incorrect
 		} else {
 			System.out.println("No, the correct answer is " + answer);	// Prints The Correct Answer.	
 		}
-		return questions;
+		return questions; //	Updates Value Of Questions Asked
 	}
+	//	Subtraction Method
 	public static Double subtract(Double right, Double questions) {
 		//	ADDS VALUE TO QUESTIONS
-		questions = questions + 1;
+		questions = questions + 1; //	Adds one to questions asked
+		//	Computer Feedback
 		System.out.println("OK, Let's Subtract!");
 		//	THIS IS THE RANDOM NUMBER GENERATOR
 		Random rand = new Random(); //	This Declares The Random Number
@@ -94,17 +134,21 @@ public class program {
 		sub = sc.nextDouble(); //	This Sets Current Scanner To The User Answer
 		//	Tell User If It Is Right Or Wrong!
 		int answer = (int) (rnumber - rnumber2); //	Creates INT To Determine The Right Answer
+		//	Used If User gets Question Correct
 		if (sub == answer) {	//	Compares User Answer To The Correct Computer Answer
 			System.out.println("Correct!"); //	Prints Out Correct
 			right = right + 1;
+		//	Used If User Gets Question Incorrect
 		} else {
 			System.out.println("No, the correct answer is " + answer);	// Prints The Correct Answer.
 		}
-		return questions;
+		return questions; //	Updates Value Of Questions Asked
 	}
+	//	Multiplication Method
 	public static Double multiply(Double right, Double questions) {
 		//	ADDS VALUE TO QUESTIONS
-		questions = questions + 1;
+		questions = questions + 1; //	Adds one to questions asked
+		//	Computer FeedBack
 		System.out.println("OK, Let's Multiply!");
 		//	THIS IS THE RANDOM NUMBER GENERATOR
 		Random rand = new Random(); //	This Declares The Random Number
@@ -120,17 +164,21 @@ public class program {
 		mul = sc.nextDouble(); //	This Sets Current Scanner To The User Answer
 		//	Tell User If It Is Right Or Wrong!
 		int answer = (int) (rnumber * rnumber2); //	Creates INT To Determine The Right Answer
+		//	Used If User Gets Question Correct
 		if (mul == answer) {	//	Compares User Answer To The Correct Computer Answer
 			System.out.println("Correct!"); //	Prints Out Correct
 			right = right + 1;
+		//	Used If User Gets Question Incorrect
 		} else {
 			System.out.println("No, the correct answer is " + answer);	// Prints The Correct Answer.
 		}
-		return questions;
+		return questions; //	Updates Value Of Questions Asked
 	}
+	//	Division Method
 	public static Double divide(Double right, Double questions) {
 		//	ADDS VALUE TO QUESTIONS
-		questions = questions + 1;
+		questions = questions + 1; //	adds one to questions asked
+		//	Computer FeedBack
 		System.out.println("OK, Let's Divide!");
 		//	THIS IS THE RANDOM NUMBER GENERATOR
 		Random rand = new Random(); //	This Declares The Random Number
@@ -145,14 +193,16 @@ public class program {
 		Double div; //	This Is The User Answer
 		div = sc.nextDouble(); //	This Sets Current Scanner To The User Answer
 		//	Tell User If It Is Right Or Wrong!
-		int answer = (int) (rnumber / rnumber2); //	Creates Double To Determine The Right Answer
+		double answer = (rnumber / rnumber2); //	Creates Double To Determine The Right Answer
 		double answerrounded = Math.round(answer * 100.0) / 100.0; // Creates Answer To The Nearest 100th
+		//	Used If User Gets Question Correct
 		if (div == answerrounded) {	//	Compares User Answer To The Correct Computer Answer
 			System.out.println("Correct!"); //	Prints Out Correct
 			right = right + 1;
+		//	used If User Gets Question Incorrect
 		} else {
 			System.out.println("No, the correct answer is " + answerrounded);	// Prints The Correct Answer.	
 		}
-		return questions;
+		return questions; //	Updates Value Of Questions Asked
 	}
 }
