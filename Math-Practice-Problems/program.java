@@ -43,14 +43,14 @@ public class program {
 				// Adds Value To Number Of Questions Asked, Used To Find Percentage Correct
 				questions = questions + 1.0;
 				// Calls Method
-				add(right, questions, questionsasked);
+				right = add(right, questions, questionsasked);
 			} else if (input == 2) {
 				// Subtraction Problem, Passes Number Of Questions Right, and other necessary
 				// things
 				// Adds Value To Number Of Questions Asked, Used To Find Percentage Correct
 				questions = questions + 1.0;
 				// Calls Method
-				subtract(right, questions, questionsasked);
+				right = subtract(right, questions, questionsasked);
 
 			} else if (input == 3) {
 				// Multiply Problem, Passes Number Of Questions Right, and other necessary
@@ -58,7 +58,7 @@ public class program {
 				// Adds Value To Number Of Questions Asked, Used To Find Percentage Correct
 				questions = questions + 1.0;
 				// Calls Method
-				multiply(right, questions, questionsasked);
+				right = multiply(right, questions, questionsasked);
 
 			} else if (input == 4) {
 				// Division Problem, Passes Number Of Questions Right, and other necessary
@@ -66,7 +66,7 @@ public class program {
 				// Adds Value To Number Of Questions Asked, Used To Find Percentage Correct
 				questions = questions + 1.0;
 				// Calls Method
-				divide(right, questions, questionsasked);
+				right = divide(right, questions, questionsasked);
 
 			} else {
 				// If Answer to what type of problem they want is not 1-4 it will print this.
@@ -133,18 +133,13 @@ public class program {
 		// Used If User gets Question Correct
 		if (sub == answer) { // Compares User Answer To The Correct Computer Answer
 			System.out.println("Correct!"); // Prints Out Correct
-			right = right + 1;
+			right = right + 1.0;
 			return right;
 			// Used If User Gets Question Incorrect
 		} else {
 			System.out.println("No, the correct answer is " + answer); // Prints The Correct Answer.
-			if (questionsasked == 1.0 || questions == 1.0 && right == 0.0) {
-				System.out.println("You Got %0 Right.");
-			} else {
 				return right;
-			}
 		}
-		return questions; // Updates Value Of Questions Asked
 	}
 
 	// Multiplication Method
