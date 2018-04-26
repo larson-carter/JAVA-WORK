@@ -31,8 +31,8 @@ public class program {
 			}
 			
 			while (counter < counter2) {
-				
-				System.out.print("* " + "");
+				 
+				System.out.print("* * " + "");
 				
 				counter = counter + 1;
 				
