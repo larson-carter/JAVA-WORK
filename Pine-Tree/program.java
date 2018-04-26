@@ -18,7 +18,9 @@ public class program {
 		
 		int temp = 1;
 		
-		while (size >= counter2) {
+		int sizehalf = size / 2;
+		
+		while (sizehalf >= counter2) {
 			
 			int counter = 0;
 			
