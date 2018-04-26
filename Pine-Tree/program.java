@@ -4,50 +4,54 @@ public class program {
 
 	public static void main(String[] args) {
 
-		System.out.println("How Wide Do You Want Your Tree Of Stars?");
-		
-		Scanner sc = new Scanner(System.in);
-		
-		int size;
-		
-		size = sc.nextInt();
-		
-		int counter2 = 1;
-		
-		int counter1 = 1;
-		
-		int temp = 1;
-		
-		int sizehalf = size / 2;
-		
-		while (sizehalf >= counter2) {
-			
-			int counter = 0;
-			
-			while (counter1 < size) {
-				
-				System.out.print("  " + "");
-				
-				counter1 = counter1 + 1;
-				
+		Scanner s = new Scanner(System.in);
+
+		System.out.println("How Wide Do You Want Your Pine Tree?" + " Make Sure It Is An Even Number!");
+
+		int counter0;
+
+		int counter1;
+
+		int counter2;
+
+		int input;
+
+		input = s.nextInt();
+
+		for (counter0 = 1; counter0 < input + (input / 2); counter0++) {
+
+			for (counter1 = input + (input / 2); counter1 > counter0; counter1--) {
+
+				System.out.print(" ");
+
 			}
-			
-			while (counter < counter2) {
-				 
-				System.out.print("* * " + "");
-				
-				counter = counter + 1;
-				
+
+			for (counter2 = 1; counter2 <= 2 * counter0 - 1; counter2++) {
+
+				System.out.print("*");
+
 			}
-			
+
 			System.out.println("");
-			
-			counter2 = counter2 + 1;
-			
-			temp = temp + 1;
-			
-			counter1 = (counter1 * 0) + (temp);
-			
+
+		}
+
+		for (counter0 = 1; counter0 < input - (input / 2); counter0++) {
+
+			for (counter1 = input + (input / 2); counter1 > 1; counter1--) {
+
+				System.out.print(" ");
+
+			}
+
+			for (counter2 = input / 2; counter2 <= (input / 2) + 1; counter2++) {
+
+				System.out.print("*");
+
+			}
+
+			System.out.println("");
+
 		}
 
 	}
