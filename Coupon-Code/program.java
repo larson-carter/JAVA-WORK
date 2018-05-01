@@ -16,11 +16,15 @@ public class program {
 
 		do {
 
-			if (couponIsValid(usedCodes, input) == true) {
+			if (couponIsValid(usedCodes, input)) {
 
 				System.out.println("This is a valid coupon.");
 
-			} else {
+				addToList();
+
+			}
+
+			else {
 
 				System.out.println("This coupon has already been redeemed.");
 
@@ -34,40 +38,16 @@ public class program {
 
 	}
 
+	public static void addToList(int input, int usedCodes) {
+		int[] usedCodes.add(input);
+	}
+
 	public static boolean couponIsValid(int[] usedCodes, int input) {
 
-		int[] moreCodes = new int[usedCodes.length + 1];
+		// Check to see if the input value is already in the usedCodes list.
 
-		for (int i = 0; i < usedCodes.length; i++) {
-
-			usedCodes[i] = usedCodes[i];
-
-		}
-
-		moreCodes[moreCodes.length - 1] = input;
-
-		moreCodes = usedCodes;
-
-		for (int i = 0; i < usedCodes.length;) {
-
-			System.out.print(usedCodes[i] + " ");
-
-			i = i + 1;
-			
-			if (usedCodes.length == input) {
-
-				return false;
-
-			} else {
-
-				return true;
-
-			}
-
-		}
-
-		return false;
+		return true; // Or false
 
 	}
-  
+
 }
